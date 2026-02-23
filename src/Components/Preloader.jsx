@@ -63,7 +63,7 @@ const Preloader = () => {
                     <div className="absolute inset-0 bg-[#C5A880]/10 blur-[80px] rounded-full animate-pulse" />
                     
                     <img 
-                        src="/img/logo.png" 
+                        src="img/logob.png" 
                         alt="Create Space Architects" 
                         className="h-20 md:h-32 w-auto object-contain relative z-10"
                     />
