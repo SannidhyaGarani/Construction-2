@@ -39,16 +39,15 @@ const Contact = () => {
               <Reveal delay={0.3}>
                 <div>
                   <span className="text-[9px] font-mono uppercase tracking-[0.5em] text-[#C5A880] block mb-4">Direct_Lines</span>
-                  <p className="font-serif text-xl text-neutral-200 mb-2">A. Mehta: +91 98272 16004</p>
-                  <p className="font-serif text-xl text-neutral-200">N. Rao: +91 84618 83444</p>
+                  <p className="font-serif text-xl text-neutral-200">Aryan Khan: +91 9111159900</p>
                 </div>
               </Reveal>
 
               <Reveal delay={0.4}>
                 <div>
                   <span className="text-[9px] font-mono uppercase tracking-[0.5em] text-[#C5A880] block mb-4">Correspondence</span>
-                  <a href="mailto:studio@archelondev.com" className="font-serif text-2xl text-white hover:text-[#C5A880] transition-colors underline underline-offset-8 decoration-white/10">
-                    studio@archelondev.com
+                  <a href="mailto:aryankhan00741@gmail.com" className="font-serif text-2xl text-white hover:text-[#C5A880] transition-colors underline underline-offset-8 decoration-white/10">
+                    aryankhan00741@gmail.com
                   </a>
                 </div>
               </Reveal>

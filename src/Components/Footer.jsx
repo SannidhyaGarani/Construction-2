@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -10,69 +11,89 @@ const Footer = () => {
   return (
     <footer className="bg-[#050505] text-white pt-32 relative overflow-hidden">
       
-      {/* Structural Accent Element */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-white/[0.02] to-transparent pointer-events-none" />
+      {/* Structural Accent Element - A very subtle vertical line grid */}
+      <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+        <div className="max-w-[1440px] mx-auto h-full border-x border-white flex justify-between">
+          <div className="w-[1px] h-full bg-white ml-[25%]" />
+          <div className="w-[1px] h-full bg-white" />
+          <div className="w-[1px] h-full bg-white mr-[25%]" />
+        </div>
+      </div>
 
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
         
         {/* --- Hero Footer Section --- */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-16 pb-24">
+        <div className="flex flex-col lg:flex-row justify-between items-end gap-16 pb-24 border-b border-white/5">
           <div className="max-w-3xl">
-            <span className="text-[10px] uppercase tracking-[0.5em] text-[#C5A880] font-bold block mb-8">
-              Legacy of Precision
+            <span className="text-[10px] uppercase tracking-[0.6em] text-[#C5A880] font-bold block mb-10">
+              The Art of Built Environment
             </span>
-            <h2 className="text-7xl md:text-[9rem] font-serif leading-[0.85] tracking-tighter text-white">
-              ARCHELON
-            </h2>
-            <div className="flex items-center gap-6 mt-4">
-              <div className="h-[1px] w-20 bg-neutral-800" />
-              <span className="text-neutral-500 uppercase tracking-[0.8em] text-xs md:text-sm">Developments</span>
+            {/* LARGE PREMIUM LOGO */}
+            <div className="flex flex-col gap-2">
+                <img 
+                    src="/img/logo.png" 
+                    alt="Create Space Architects" 
+                    className="h-20 md:h-28 w-auto object-contain brightness-110"
+                />
             </div>
           </div>
 
-          <div className="flex flex-col lg:items-end justify-between h-full min-h-[200px]">
+          <div className="w-full lg:w-auto">
             <Link 
               to="/contact" 
-              className="group flex items-center gap-6 bg-white/5 border border-white/10 p-8 md:p-12 hover:bg-[#C5A880] transition-all duration-700"
+              className="group flex items-center justify-between gap-12 bg-white/[0.03] border border-white/10 p-10 md:p-14 hover:border-[#C5A880]/50 transition-all duration-700 relative overflow-hidden"
             >
-              <div className="space-y-2">
-                <span className="block uppercase text-[10px] tracking-[0.3em] text-[#C5A880] group-hover:text-[#050505] font-bold">Start a Project</span>
-                <span className="block text-2xl font-serif text-white group-hover:text-[#050505]">Request a Proposal</span>
+              {/* Hover Background Fill */}
+              <div className="absolute inset-0 bg-[#C5A880] translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
+              
+              <div className="relative z-10 space-y-3">
+                <span className="block uppercase text-[10px] tracking-[0.4em] text-[#C5A880] group-hover:text-[#050505] font-bold transition-colors duration-500">
+                    Collaborate
+                </span>
+                <span className="block text-3xl md:text-4xl font-serif text-white group-hover:text-[#050505] transition-colors duration-500">
+                    Start Your Legacy
+                </span>
               </div>
-              <div className="w-8 h-8 border-t border-r border-white group-hover:border-[#050505] rotate-45 transition-transform duration-500 group-hover:translate-x-2 group-hover:-translate-y-2" />
+              <div className="relative z-10 w-12 h-12 flex items-center justify-center border border-white/20 group-hover:border-[#050505] rounded-full transition-all duration-500 transform group-hover:rotate-45">
+                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-white group-hover:text-[#050505]">
+                    <path d="M4.16663 15.8333L15.8333 4.16663M15.8333 4.16663H7.49996M15.8333 4.16663V12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                 </svg>
+              </div>
             </Link>
           </div>
         </div>
 
         {/* --- Information Grid --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 py-20 border-t border-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 py-20">
           
           {/* Identity */}
           <div className="space-y-8">
-            <div className="flex flex-col">
-              <span className="font-serif text-xl tracking-tight text-white">ARCHELON</span>
-              <span className="text-[8px] uppercase tracking-[0.4em] text-[#C5A880] font-bold">Developments</span>
-            </div>
-            <p className="text-neutral-500 text-sm leading-relaxed font-light max-w-[240px]">
-              Defining the future of Tier‑1 urban landscapes through disciplined engineering and timeless aesthetics.
+            <img 
+              src="/img/logo.png" 
+              alt="Create Space Logo" 
+              className="h-12 w-auto object-contain opacity-90"
+            />
+            <p className="text-neutral-500 text-sm leading-relaxed font-light max-w-[260px]">
+              Crafting architectural narratives that balance brutalist precision with organic warmth. Creating spaces that breathe.
             </p>
-            <div className="flex gap-6">
-              {['Instagram','LinkedIn','Facebook'].map((name, i) => (
-                <Link key={i} to="#" className="text-neutral-600 hover:text-[#C5A880] transition-colors duration-500 text-sm">
+            <div className="flex gap-8">
+              {['Instagram','LinkedIn','Pinterest'].map((name, i) => (
+                <Link key={i} to="#" className="relative text-neutral-500 hover:text-white transition-colors duration-500 text-xs uppercase tracking-widest group">
                   {name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#C5A880] transition-all duration-500 group-hover:w-full" />
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Nav */}
+          {/* Directory */}
           <div className="space-y-10">
-            <h4 className="text-[10px] uppercase tracking-[0.3em] text-[#C5A880] font-bold">Directory</h4>
-            <ul className="space-y-4">
+            <h4 className="text-[10px] uppercase tracking-[0.4em] text-[#C5A880] font-bold">Directory</h4>
+            <ul className="space-y-5">
               {['Home', 'About', 'Services', 'Gallery', 'Contact'].map((item) => (
                 <li key={item}>
-                  <Link to={`/${item.toLowerCase()}`} className="text-neutral-400 hover:text-white text-sm font-light transition-all duration-500 flex items-center gap-0 hover:gap-4 group">
-                    <div className="w-0 h-[1px] bg-[#C5A880] group-hover:w-8 transition-all duration-500" />
+                  <Link to={`/${item.toLowerCase()}`} className="text-neutral-400 hover:text-white text-[13px] tracking-wide font-light transition-all duration-500 flex items-center gap-0 hover:gap-4 group">
+                    <div className="w-0 h-[1px] bg-[#C5A880] group-hover:w-6 transition-all duration-500" />
                     {item}
                   </Link>
                 </li>
@@ -80,33 +101,33 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Specialties */}
+          {/* Practice Areas */}
           <div className="space-y-10">
-            <h4 className="text-[10px] uppercase tracking-[0.3em] text-[#C5A880] font-bold">Specialization</h4>
-            <ul className="space-y-4 text-neutral-500 text-sm font-light">
-              <li className="hover:text-[#C5A880] transition-colors duration-500 cursor-default">High-Rise Residential</li>
-              <li className="hover:text-[#C5A880] transition-colors duration-500 cursor-default">Corporate Headquarters</li>
-              <li className="hover:text-[#C5A880] transition-colors duration-500 cursor-default">Industrial Architecture</li>
-              <li className="hover:text-[#C5A880] transition-colors duration-500 cursor-default">Heritage Restoration</li>
+            <h4 className="text-[10px] uppercase tracking-[0.4em] text-[#C5A880] font-bold">Expertise</h4>
+            <ul className="space-y-5 text-neutral-500 text-[13px] font-light tracking-wide">
+              <li className="hover:text-white transition-colors duration-500 cursor-default">Luxury Residential</li>
+              <li className="hover:text-white transition-colors duration-500 cursor-default">Boutique Commercial</li>
+              <li className="hover:text-white transition-colors duration-500 cursor-default">Landscape Integration</li>
+              <li className="hover:text-white transition-colors duration-500 cursor-default">Sustainable Design</li>
             </ul>
           </div>
 
-          {/* Offices */}
+          {/* Global Reach */}
           <div className="space-y-10">
-            <h4 className="text-[10px] uppercase tracking-[0.3em] text-[#C5A880] font-bold">Inquiries</h4>
+            <h4 className="text-[10px] uppercase tracking-[0.4em] text-[#C5A880] font-bold">Studio</h4>
             <div className="space-y-8">
-              <div className="flex items-start gap-4">
-                <div className="w-3 h-3 bg-[#C5A880] rounded-full mt-1" />
-                <p className="text-sm font-light text-neutral-400 leading-relaxed">
+              <div className="space-y-2">
+                <p className="text-[10px] uppercase tracking-widest text-neutral-600">HQ — Gurugram</p>
+                <p className="text-[13px] font-light text-neutral-400 leading-relaxed">
                   Sector 54, Golf Course Road <br />
-                  Gurugram, HR 122009
+                  DLF Phase V, HR 122009
                 </p>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="w-3 h-3 bg-[#C5A880] rounded-full mt-1" />
-                <p className="text-sm font-light text-neutral-400 hover:text-white transition-colors cursor-pointer">
-                  studio@archelondev.com
-                </p>
+              <div className="space-y-2">
+                <p className="text-[10px] uppercase tracking-widest text-neutral-600">Inquiries</p>
+                <a href="mailto:aryankhan00741@gmail.com" className="text-[13px] font-light text-[#C5A880] hover:text-white transition-colors block">
+                  aryankhan00741@gmail.com
+                </a>
               </div>
             </div>
           </div>
@@ -114,24 +135,26 @@ const Footer = () => {
 
         {/* --- Legal --- */}
         <div className="py-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="text-[9px] uppercase tracking-[0.4em] text-neutral-600">
-            © {currentYear} Archelon Developments • All Rights Reserved
+          <div className="text-[9px] uppercase tracking-[0.5em] text-neutral-600">
+            © {currentYear} Create Space Architects • <span className="text-neutral-700">Architecture & Interior Design</span>
           </div>
           
           <button 
             onClick={scrollToTop}
-            className="group flex items-center gap-3 text-neutral-600 hover:text-white transition-all duration-500 text-[10px] uppercase tracking-[0.3em]"
+            className="group flex items-center gap-4 text-neutral-500 hover:text-white transition-all duration-500 text-[10px] uppercase tracking-[0.3em]"
           >
-            Scroll to Top
-            <div className="p-2 rounded-full border border-neutral-800 group-hover:border-[#C5A880] group-hover:bg-[#C5A880] group-hover:text-[#050505] transition-all duration-500">
-              <div className="w-2 h-2 border-t border-r border-current rotate-45" />
+            Back to Top
+            <div className="w-10 h-10 flex items-center justify-center rounded-full border border-white/10 group-hover:border-[#C5A880] group-hover:bg-[#C5A880] group-hover:text-[#050505] transition-all duration-700">
+               <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 10V2M6 2L2 6M6 2L10 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+               </svg>
             </div>
           </button>
         </div>
       </div>
       
-      {/* Minimalist Bottom Bar */}
-      <div className="h-1 w-full bg-[#C5A880]/20" />
+      {/* Accent Gold Bar */}
+      <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-[#C5A880]/40 to-transparent" />
     </footer>
   );
 };

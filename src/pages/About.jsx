@@ -170,7 +170,7 @@ const About = () => {
               
               <div className="mt-16 grid grid-cols-2 gap-12 pt-12 border-t border-white/5">
                  <div>
-                    <h4 className="font-serif text-2xl text-white mb-2 hover:text-[#C5A880] transition-colors">Aarav Mehta</h4>
+                    <h4 className="font-serif text-2xl text-white mb-2 hover:text-[#C5A880] transition-colors">Aryan Khan</h4>
                     <p className="text-[10px] uppercase tracking-[0.3em] text-neutral-500 font-bold">Principal Founder</p>
                  </div>
                  <div>

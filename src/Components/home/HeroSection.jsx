@@ -38,11 +38,11 @@ const HeroSection = () => {
         {/* Technical Metadata (Vertical) */}
         <div className={`absolute left-6 md:left-10 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-12 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
           <span className="rotate-90 origin-center text-[9px] uppercase tracking-[1em] text-[#C5A880] font-bold whitespace-nowrap">
-            ESTABLISHED MMIV
+            {/* ESTABLISHED MMIV */}
           </span>
           <div className="h-32 w-[1px] bg-neutral-800" />
           <span className="rotate-90 origin-center text-[9px] uppercase tracking-[1em] text-neutral-600 whitespace-nowrap">
-            HQ // GURUGRAM
+            {/* HQ // GURUGRAM */}
           </span>
         </div>
 
@@ -72,7 +72,7 @@ const HeroSection = () => {
           {/* Subtext with a "technical" feel */}
           <div className={`grid md:grid-cols-2 gap-8 items-start transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
             <p className="text-neutral-400 text-sm md:text-lg font-light leading-relaxed border-l border-[#C5A880]/30 pl-6">
-              Archelon Developments orchestrates high-value assets where structural integrity meets refined aesthetic discipline. We don't just build; we curate landmarks.
+              Create Space Architects orchestrates high-value assets where structural integrity meets refined aesthetic discipline. We don't just build; we curate landmarks.
             </p>
             
             <div className="flex flex-col gap-6 pt-2">
