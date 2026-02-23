@@ -33,7 +33,7 @@ const Header = () => {
           {/* Logo Section - Significantly Upscaled */}
           <Link to="/" className="group z-50 flex items-center">
             <img
-              src="img/logo.png"
+              src="img/logos.png"
               alt="Create Space Architects Logo"
               /* Mobile: h-16 (unscrolled) to h-14 (scrolled)
                  Desktop: h-24 (unscrolled) to h-18 (scrolled)

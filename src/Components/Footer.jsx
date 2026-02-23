@@ -31,7 +31,7 @@ const Footer = () => {
             {/* LARGE PREMIUM LOGO */}
             <div className="flex flex-col gap-2">
                 <img 
-                    src="img/logo.png" 
+                    src="img/logos.png" 
                     alt="Create Space Architects" 
                     className="h-20 md:h-28 w-auto object-contain brightness-110"
                 />
@@ -69,7 +69,7 @@ const Footer = () => {
           {/* Identity */}
           <div className="space-y-8">
             <img 
-              src="img/logo.png" 
+              src="img/logos.png" 
               alt="Create Space Logo" 
               className="h-12 w-auto object-contain opacity-90"
             />
