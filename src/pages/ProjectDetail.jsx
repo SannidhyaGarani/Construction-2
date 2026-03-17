@@ -113,6 +113,8 @@ const ProjectDetail = () => {
           <div className="lg:col-span-7">
             <Reveal delay={0.2}>
               <div className="flex flex-col gap-8">
+                
+                {/* Main Project Image */}
                 <div className="relative group overflow-hidden bg-neutral-100 border border-neutral-200">
                   <img 
                     src={project.projectImage} 
@@ -122,9 +124,51 @@ const ProjectDetail = () => {
                   <div className="absolute top-6 left-6 border-l border-t border-white/40 w-12 h-12 pointer-events-none" />
                   <div className="absolute bottom-6 right-6 border-r border-b border-white/40 w-12 h-12 pointer-events-none" />
                 </div>
+
+                {/* Ground Floor Image */}
+                {project.groundFloorImage && (
+                  <div className="relative group overflow-hidden bg-neutral-100 border border-neutral-200">
+                    <img 
+                      src={project.groundFloorImage} 
+                      alt="Ground Floor" 
+                      className="w-full h-auto object-cover transition-transform duration-[1.5s] group-hover:scale-105" 
+                    />
+                    <div className="absolute top-6 left-6 text-[9px] uppercase tracking-widest bg-black/50 text-white px-4 py-2 backdrop-blur-sm">
+                      Ground Floor
+                    </div>
+                  </div>
+                )}
+
+                {/* First Floor Image */}
+                {project.firstFloorImage && (
+                  <div className="relative group overflow-hidden bg-neutral-100 border border-neutral-200">
+                    <img 
+                      src={project.firstFloorImage} 
+                      alt="First Floor" 
+                      className="w-full h-auto object-cover transition-transform duration-[1.5s] group-hover:scale-105" 
+                    />
+                    <div className="absolute top-6 left-6 text-[9px] uppercase tracking-widest bg-black/50 text-white px-4 py-2 backdrop-blur-sm">
+                      First Floor
+                    </div>
+                  </div>
+                )}
+
+                {/* Additional Perspective */}
+                {project.additionalImage && (
+                  <div className="relative group overflow-hidden bg-neutral-100 border border-neutral-200">
+                    <img 
+                      src={project.additionalImage} 
+                      alt="Additional Perspective" 
+                      className="w-full h-auto object-cover transition-transform duration-[1.5s] group-hover:scale-105" 
+                    />
+                    <div className="absolute top-6 left-6 text-[9px] uppercase tracking-widest bg-black/50 text-white px-4 py-2 backdrop-blur-sm">
+                      Additional Perspective
+                    </div>
+                  </div>
+                )}
                 
                 <div className="flex justify-between items-center text-neutral-400">
-                  <span className="text-[9px] uppercase tracking-widest italic">High-Fidelity Architectural Asset</span>
+                  <span className="text-[9px] uppercase tracking-widest italic">High-Fidelity Architectural Assets</span>
                   <span className="text-[9px] uppercase tracking-widest">© Architectural Studio 2024</span>
                 </div>
               </div>

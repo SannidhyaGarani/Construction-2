@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  collection, 
-  addDoc, 
-  getDocs, 
-  updateDoc, 
-  deleteDoc, 
-  doc, 
-  query, 
-  orderBy, 
-  serverTimestamp 
+import {
+  collection,
+  addDoc,
+  getDocs,
+  updateDoc,
+  deleteDoc,
+  doc,
+  query,
+  orderBy,
+  serverTimestamp
 } from 'firebase/firestore';
 import { db } from '../../Firebase/Firebase';
 import { Plus, Search, Loader2, X, BookOpen } from 'lucide-react';
@@ -52,7 +52,7 @@ const Blogs = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
+
     try {
       const dataToSave = {
         ...formData,
@@ -69,7 +69,7 @@ const Blogs = () => {
         });
         toast.success("Blog published successfully");
       }
-      
+
       setIsModalOpen(false);
       resetForm();
       fetchBlogs();
@@ -106,7 +106,7 @@ const Blogs = () => {
     setIsModalOpen(true);
   };
 
-  const filteredBlogs = blogs.filter(blog => 
+  const filteredBlogs = blogs.filter(blog =>
     blog.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -128,9 +128,9 @@ const Blogs = () => {
       <div className="flex flex-col md:flex-row gap-6 p-8 bg-white rounded-3xl shadow-2xl shadow-neutral-100/50 border border-neutral-100">
         <div className="flex-1 relative group">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-neutral-400 group-hover:text-neutral-800 transition-colors" size={18} />
-          <input 
-            type="text" 
-            placeholder="Search articles..." 
+          <input
+            type="text"
+            placeholder="Search articles..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-12 pr-6 py-4 bg-neutral-100 rounded-2xl border-none focus:ring-2 focus:ring-neutral-800 transition-all outline-none text-sm font-medium"
@@ -146,7 +146,7 @@ const Blogs = () => {
       ) : filteredBlogs.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {filteredBlogs.map((blog) => (
-            <Card 
+            <Card
               key={blog.id}
               image={blog.blogImage}
               title={blog.title}
@@ -184,20 +184,20 @@ const Blogs = () => {
               </div>
 
               <div className="p-10 md:p-12 space-y-12 max-h-[60vh] overflow-y-auto custom-scrollbar">
-                <Input label="Article Title" value={formData.title} onChange={(e) => setFormData({...formData, title: e.target.value})} placeholder="e.g. The Future of Sustainable Architecture" required />
-                
+                <Input label="Article Title" value={formData.title} onChange={(e) => setFormData({ ...formData, title: e.target.value })} placeholder="e.g. The Future of Sustainable Architecture" required />
+
                 <div className="flex flex-col gap-2">
                   <label className="text-sm font-semibold text-neutral-600 tracking-wide uppercase">Content</label>
-                  <textarea 
+                  <textarea
                     value={formData.content}
-                    onChange={(e) => setFormData({...formData, content: e.target.value})}
+                    onChange={(e) => setFormData({ ...formData, content: e.target.value })}
                     className="px-6 py-4 rounded-2xl bg-neutral-100 border-none focus:bg-white focus:ring-2 focus:ring-neutral-800 transition-all text-neutral-800 outline-none shadow-sm min-h-[300px] resize-none leading-relaxed"
                     placeholder="Write your article content here..."
                     required
                   />
                 </div>
 
-                <FileUpload label="Cover Image" initialValue={formData.blogImage} onUploadComplete={(url) => setFormData({...formData, blogImage: url})} required />
+                <FileUpload label="Cover Image" initialValue={formData.blogImage} onUploadComplete={(url) => setFormData({ ...formData, blogImage: url })} required />
               </div>
 
               <div className="p-10 md:p-12 bg-neutral-50 flex items-center justify-end gap-6">

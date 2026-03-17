@@ -1,81 +1,118 @@
 import React from 'react';
-import Reveal from '../../Components/Reveal';
+import { Link } from 'react-router-dom';
+import { ArrowUpRight } from 'lucide-react';
 
-const services = [
-  { t: 'Architectural Planning', d: 'Feasibility-led layouts, proportioned massing, and complete IFC documentation.' },
-  { t: 'Construction Delivery', d: 'Disciplined execution with verified materials and accountable site supervision.' },
-  { t: 'Façade & Elevation', d: 'Contextual facades with balanced materiality and long-term maintenance in mind.' },
-  { t: 'Interior Architecture', d: 'Cohesive, durable interiors with efficient detailing and timeless palettes.' },
-  { t: 'Structural Coordination', d: 'Engineering collaboration for safe, efficient structures and clear shop drawings.' },
-  { t: 'Regulatory Approvals', d: 'Municipal submissions, compliance documentation, and systematic follow‑through.' },
-];
-
-const ServicesSection = () => {
+const Services = () => {
+  const services = [
+    {
+      id: '01',
+      title: 'Interior Designing',
+      subtitle: 'Bespoke Environments',
+      image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800',
+      link: '/interiors'
+    },
+    {
+      id: '02',
+      title: 'Exterior Architecture',
+      subtitle: 'Structural Excellence',
+      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800',
+      link: '/exteriors'
+    },
+    {
+      id: '03',
+      title: 'Floor Planning',
+      subtitle: 'Spatial Precision',
+      image: 'https://images.unsplash.com/photo-1563219125-1db796e20ff2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Zmxvb3IlMjB0aWxlc3xlbnwwfHwwfHx8MA%3D%3D',
+      link: '/floorplans'
+    },
+    {
+      id: '04',
+      title: 'Luxury Projects',
+      subtitle: 'Turnkey Delivery',
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
+      link: '/projects'
+    },
+  ];
 
   return (
-    <section className="py-24 md:py-40 bg-[#050505] text-neutral-200">
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+    <section className="bg-white py-24 px-6 md:px-12 lg:px-20 border-t border-neutral-100">
+      <div className="max-w-[1300px] mx-auto">
         
-        {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-12">
-          <Reveal>
-            <div className="max-w-3xl relative z-10">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="w-12 h-[1px] bg-[#C5A880]" />
-                <span className="uppercase tracking-[0.4em] text-xs font-semibold text-[#C5A880]">
-                  Capabilities
-                </span>
-              </div>
-              <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[1.05] text-white">
-                Designing with <br />
-                <span className="italic text-neutral-500 font-light">Purpose.</span>
-              </h2>
+        {/* --- Section Header --- */}
+        <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-[1px] w-8 bg-black" />
+              <span className="text-[10px] uppercase tracking-[0.5em] font-bold text-[#C5A880]">Our Expertise</span>
             </div>
-          </Reveal>
-          <Reveal delay={0.2}>
-            <p className="max-w-sm text-neutral-400 text-lg font-light leading-relaxed border-l border-neutral-800 pl-6 pb-2">
-              A comprehensive approach to the built environment, from initial conceptual sketch to final laying of stone.
+            <h2 className="text-5xl md:text-6xl font-serif text-neutral-900 tracking-tighter">
+              Studio Services<span className="text-[#C5A880]">.</span>
+            </h2>
+          </div>
+          <div className="max-w-xs">
+            <p className="text-[11px] uppercase tracking-[0.2em] text-neutral-400 leading-relaxed">
+              We provide comprehensive architectural solutions, from initial blueprint to final interior staging.
             </p>
-          </Reveal>
+          </div>
         </div>
 
-        {/* Services Bento/Grid List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-          {services.map((s, i) => (
-            <Reveal key={s.t} delay={i * 0.1} side="bottom">
-              <div className="group relative bg-[#0F0F0F] border border-neutral-800/50 p-10 md:p-14 hover:bg-[#141414] transition-all duration-700 overflow-hidden rounded-sm">
-                
-                {/* Background Number Watermark */}
-                <span className="absolute -bottom-4 -right-2 font-serif text-[8rem] text-white/[0.02] group-hover:text-white/[0.04] group-hover:-translate-y-4 transition-all duration-700 pointer-events-none select-none leading-none">
-                  0{i + 1}
-                </span>
+        {/* --- Services Grid (4 Columns) --- */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {services.map((item) => (
+            <Link 
+              key={item.id} 
+              to={item.link} 
+              className="group relative aspect-[3/4] overflow-hidden bg-neutral-200 border border-neutral-100 transition-all duration-500 hover:border-black"
+            >
+              {/* Image with subtle zoom and grayscale-to-color transition */}
+              <img 
+                src={item.image} 
+                alt={item.title} 
+                className="absolute inset-0 w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 group-hover:scale-110 transition-transform duration-[1.5s] ease-out"
+              />
+              
+              {/* Premium Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-500" />
 
-                <div className="relative z-10 flex flex-col h-full justify-between min-h-[180px]">
-                  <div>
-                    <h3 className="font-serif text-2xl md:text-3xl mb-4 text-white transition-colors duration-500 group-hover:text-[#C5A880]">
-                      {s.t}
-                    </h3>
-                    <p className="text-neutral-400 font-light leading-relaxed max-w-md text-sm md:text-base">
-                      {s.d}
-                    </p>
-                  </div>
-                  
-                  {/* Premium Interactive Element */}
-                  <div className="mt-12 flex items-center gap-4 opacity-60 group-hover:opacity-100 transition-opacity duration-500">
-                    <span className="uppercase tracking-[0.2em] text-[10px] font-semibold text-[#C5A880]">Explore</span>
-                    <div className="w-0 h-[1px] bg-[#C5A880] group-hover:w-16 transition-all duration-700 ease-in-out" />
-                  </div>
+              {/* Content Overlay */}
+              <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                {/* Top Label */}
+                <div className="flex justify-between items-start">
+                  <span className="text-[9px] font-mono text-white/40 tracking-widest uppercase">
+                    Catalog_Ref_{item.id}
+                  </span>
+                  <ArrowUpRight 
+                    size={20} 
+                    className="text-white opacity-0 -translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500" 
+                  />
                 </div>
 
-                {/* Subtle Top Border Glow */}
-                <div className="absolute top-0 left-0 w-0 h-[2px] bg-gradient-to-r from-[#C5A880] to-transparent group-hover:w-full transition-all duration-1000 ease-out" />
+                {/* Bottom Content */}
+                <div>
+                  <p className="text-[9px] uppercase tracking-[0.4em] text-[#C5A880] font-bold mb-2">
+                    {item.subtitle}
+                  </p>
+                  <h3 className="text-2xl font-light text-white uppercase tracking-tight leading-tight mb-4">
+                    {item.title}
+                  </h3>
+                  
+                  {/* The Architectural Line Animation */}
+                  <div className="relative h-[1px] w-full bg-white/10 overflow-hidden">
+                    <div className="absolute inset-0 bg-[#C5A880] translate-x-[-101%] group-hover:translate-x-0 transition-transform duration-700" />
+                  </div>
+                </div>
               </div>
-            </Reveal>
+
+              {/* Technical Hover Decor (Corners) */}
+              <div className="absolute top-4 left-4 w-4 h-4 border-l border-t border-white/0 group-hover:border-white/40 transition-all duration-500" />
+              <div className="absolute bottom-4 right-4 w-4 h-4 border-r border-b border-white/0 group-hover:border-white/40 transition-all duration-500" />
+            </Link>
           ))}
         </div>
+
       </div>
     </section>
   );
 };
 
-export default ServicesSection;
+export default Services;

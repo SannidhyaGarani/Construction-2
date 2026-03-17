@@ -13,11 +13,11 @@ import {
 import { db } from '../../Firebase/Firebase';
 import { Plus, Search, Loader2, X, Square, Tag, CheckCircle, Circle } from 'lucide-react';
 import { toast } from 'react-hot-toast';
-import Input from '../../components/common/Input';
-import Select from '../../components/common/Select';
-import FileUpload from '../../components/common/FileUpload';
-import Button from '../../components/common/Button';
-import Card from '../../components/common/Card';
+import Input from '../../Components/common/Input';
+import Select from '../../Components/common/Select';
+import FileUpload from '../../Components/common/FileUpload';
+import Button from '../../Components/common/Button';
+import Card from '../../Components/common/Card';
 
 const Interiors = () => {
   const [interiors, setInteriors] = useState([]);

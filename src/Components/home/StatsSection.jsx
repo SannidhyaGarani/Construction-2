@@ -1,50 +1,76 @@
-import React from 'react';
-import Reveal from '../../Components/Reveal';
-
-const items = [
-  { value: '25+', label: 'Years Practiced', detail: 'Operating since 2001' },
-  { value: '120+', label: 'Projects Delivered', detail: 'Residential, corporate & industrial' },
-  { value: 'Tier‑1', label: 'City Footprint', detail: 'Mumbai • Pune • Gurugram' },
-];
+import React, { useState, useEffect, useRef } from 'react';
 
 const StatsSection = () => {
- 
+  const [hasStarted, setHasStarted] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) setHasStarted(true);
+    }, { threshold: 0.5 });
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  const stats = [
+    { val: 25, label: 'Years Practiced', suffix: '+' },
+    { val: 120, label: 'Projects Delivered', suffix: '+' },
+    { val: 15, label: 'SQ.FT Designed', suffix: 'K' },
+    { val: 0, label: 'Design Awards', suffix: '12' }, // Custom example
+  ];
 
   return (
-    <section className="py-24 md:py-32 bg-[#0B0F14] text-white relative overflow-hidden">
-      {/* Subtle Grainy Texture Overlay */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay bg-[url('https://www.transparenttextures.com/patterns/pinstriped-suit.png')]" />
-
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8">
-          {items.map((it, i) => (
-            <Reveal key={it.label} delay={i * 0.1}>
-              <div className="flex flex-col relative group">
-                {/* Background "Ghost" Number */}
-                <div className="absolute -top-10 -left-4 font-serif text-9xl text-white/[0.03] select-none pointer-events-none transition-all duration-1000 group-hover:text-white/[0.07]">
-                  0{i + 1}
-                </div>
-
-                <div className="flex items-baseline gap-2">
-                  <div className="font-serif text-6xl md:text-8xl lg:text-[7rem] leading-none mb-4">
-                    {it.value}
-                  </div>
-                </div>
-
-                <div className="h-[2px] w-8 bg-[#C5A880] mb-6 transition-all duration-700 group-hover:w-24" />
-
-                <div className="uppercase tracking-[0.4em] text-[10px] font-bold text-stone-300 mb-2">
-                  {it.label}
-                </div>
-                <div className="text-stone-400 font-light text-xs italic tracking-wider">
-                  {it.detail}
-                </div>
+    <section ref={sectionRef} className="bg-white border-y border-neutral-100 py-16 overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-0">
+          {stats.map((item, i) => (
+            <div key={i} className="flex flex-col items-center lg:items-start lg:px-10 lg:border-r last:border-0 border-neutral-100 group">
+              {/* Technical ID */}
+              <span className="text-[8px] font-mono text-neutral-300 tracking-[0.4em] mb-4 uppercase">Data_Point.0{i+1}</span>
+              
+              <div className="flex items-baseline gap-1">
+                <Counter end={item.val} startAnim={hasStarted} />
+                <span className="text-xl font-light text-[#C5A880]">{item.suffix}</span>
               </div>
-            </Reveal>
+
+              <div className="mt-4 space-y-1">
+                <h4 className="text-[10px] uppercase tracking-[0.3em] font-bold text-neutral-800 group-hover:text-black transition-colors">
+                  {item.label}
+                </h4>
+                {/* Visual Accent */}
+                <div className="h-[1px] w-4 bg-[#C5A880] group-hover:w-full transition-all duration-500" />
+              </div>
+            </div>
           ))}
         </div>
       </div>
     </section>
+  );
+};
+
+const Counter = ({ end, startAnim }) => {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    if (!startAnim) return;
+    let start = 0;
+    const duration = 2000;
+    const increment = end / (duration / 16);
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 16);
+    return () => clearInterval(timer);
+  }, [end, startAnim]);
+
+  return (
+    <span className="font-serif text-5xl md:text-6xl text-neutral-900 tracking-tighter">
+      {count}
+    </span>
   );
 };
 
