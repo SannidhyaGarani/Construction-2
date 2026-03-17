@@ -13,10 +13,10 @@ import {
 import { db } from '../../Firebase/Firebase';
 import { Plus, Search, Loader2, X, BookOpen } from 'lucide-react';
 import { toast } from 'react-hot-toast';
-import Input from '../../components/common/Input';
-import FileUpload from '../../components/common/FileUpload';
-import Button from '../../components/common/Button';
-import Card from '../../components/common/Card';
+import Input from '../../Components/common/Input';
+import FileUpload from '../../Components/common/FileUpload';
+import Button from '../../Components/common/Button';
+import Card from '../../Components/common/Card';
 
 const Blogs = () => {
   const [blogs, setBlogs] = useState([]);
