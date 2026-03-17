@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Reveal from './Reveal';
 
-const PageHero = ({ title, subtitle, backgroundImage, className = '' }) => {
+const PageHero = ({ title, subtitle, backgroundImage }) => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -10,56 +10,105 @@ const PageHero = ({ title, subtitle, backgroundImage, className = '' }) => {
   }, []);
 
   return (
-    <section className={`relative h-[65vh] md:h-[75vh] w-full bg-[#050505] overflow-hidden ${className}`}>
-      {/* --- Film Grain & Noise Overlay --- */}
-      <div className="absolute inset-0 z-20 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-      
-      {/* --- Cinematic Background --- */}
+    <section className="relative h-[90vh] w-full overflow-hidden bg-neutral-100">
+
+      {/* === BACKGROUND IMAGE (CINEMATIC) === */}
       <div className="absolute inset-0 z-0">
-        <div 
-          className={`absolute inset-0 bg-cover bg-center transition-all duration-[8000ms] ease-out scale-110 ${
-            isLoaded ? 'opacity-40 scale-100 rotate-0' : 'opacity-0 scale-125 rotate-1'
-          }`}
-          style={{ backgroundImage: `url('${backgroundImage}')` }}
-        />
-        {/* Deep Onyx Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#050505]/20 via-[#050505]/80 to-[#050505]" />
-      </div>
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            className={`absolute inset-0 bg-cover bg-center transition-all duration-[6000ms] ease-out ${isLoaded ? 'scale-100 opacity-100' : 'scale-110 opacity-0'
+              }`}
+            style={{ backgroundImage: `url('${backgroundImage}')` }}
+          />
 
-      {/* --- Architectural Data HUD --- */}
-      <div className="absolute inset-0 z-10 pointer-events-none border-x border-white/5 mx-6 md:mx-16">
-        <div className="absolute top-12 left-0 flex flex-col gap-2">
-          <span className="text-[8px] font-mono text-[#C5A880]/40 tracking-[0.5em] uppercase">Coord_28.6139° N, 77.2090° E</span>
-          <div className="h-[1px] w-12 bg-white/10" />
-        </div>
-        <div className="absolute bottom-12 right-0 origin-bottom-right -rotate-90">
-          <span className="text-[8px] font-mono text-white/20 tracking-[0.5em] uppercase whitespace-nowrap">Archelon_Digital_Archive_v.02</span>
+          {/* DARK DEPTH OVERLAY */}
+          <div className="absolute inset-0 bg-black/20" />
+
+          {/* SOFT LIGHT GRADIENT */}
+          {/* DARK TO LIGHT SOFT GRADIENT (UPDATED) */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-neutral-100/10 to-white" />
+
+          {/* LUXURY GRAIN */}
+          <div className="absolute inset-0 opacity-[0.04] bg-[url('/noise.png')]" />
         </div>
       </div>
 
-      {/* --- Main Content --- */}
-      <div className="relative z-30 h-full max-w-[1440px] mx-auto px-6 md:px-16 flex flex-col justify-end pb-16">
-        <div className="max-w-5xl">
-          <div className={`overflow-hidden transition-all duration-1000 delay-300 ${isLoaded ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-            <span className="inline-block text-[10px] md:text-[11px] uppercase tracking-[0.6em] text-[#C5A880] font-bold mb-6">
-              {subtitle}
-            </span>
+      {/* === GRID / ARCHITECTURAL OVERLAY === */}
+      <div
+        className="absolute inset-0 z-10 pointer-events-none opacity-[0.06]"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle, #000 1px, transparent 1px)',
+          backgroundSize: '28px 28px',
+        }}
+      />
+
+      {/* === MAIN CONTENT === */}
+      <div className="relative z-20 h-full max-w-[1600px] mx-auto px-6 md:px-16 flex flex-col justify-end pb-24">
+
+        {/* SUBTITLE */}
+        <div className="flex items-center gap-6 mb-6">
+          <div className="flex items-center gap-2">
+            <div className="w-1 h-1 bg-black rounded-full" />
+            <div className="h-[1px] w-16 bg-black/60" />
+            <div className="w-1 h-1 bg-black rounded-full" />
           </div>
 
-          <h1 className="font-serif text-[12vw] md:text-[7vw] leading-[0.85] text-white tracking-tighter">
-            <Reveal delay={0.6}>
-              {title.split(' ').map((word, i) => (
-                <span key={i} className={i % 2 !== 0 ? "italic font-light text-neutral-500" : ""}>
-                  {word}{' '}
-                </span>
-              ))}
+          <span className="text-[11px] uppercase tracking-[0.6em] font-semibold text-neutral-500">
+            {subtitle || "Signature Project"}
+          </span>
+        </div>
+
+        {/* TITLE */}
+        <div className="max-w-5xl">
+          <h1 className="font-serif text-[15vw] md:text-[8vw] leading-[0.75] tracking-tight text-neutral-900">
+            <Reveal delay={0.3}>
+              {title}
+              <span className="text-[#C5A880]">.</span>
             </Reveal>
           </h1>
         </div>
+
+        {/* PREMIUM GLASS INFO BAR */}
+        <div className="mt-12 backdrop-blur-xl bg-white/40 border border-white/30 rounded-2xl px-6 md:px-10 py-6 flex flex-col md:flex-row justify-between items-start md:items-center shadow-[0_10px_40px_rgba(0,0,0,0.08)]">
+
+          {/* LEFT INFO */}
+          <div className="flex gap-12">
+            <div>
+              <p className="text-[9px] font-mono uppercase text-neutral-400 mb-1">
+                Project Status
+              </p>
+              <p className="text-[11px] font-semibold tracking-widest uppercase">
+                Completed / 2024
+              </p>
+            </div>
+
+            <div>
+              <p className="text-[9px] font-mono uppercase text-neutral-400 mb-1">
+                Location
+              </p>
+              <p className="text-[11px] font-semibold tracking-widest uppercase text-[#C5A880]">
+                International Archive
+              </p>
+            </div>
+          </div>
+
+          {/* RIGHT SIDE */}
+          <div className="mt-4 md:mt-0">
+            <span className="text-[10px] tracking-[0.5em] text-neutral-400 uppercase">
+              SC_REF // 001 - 012
+            </span>
+          </div>
+        </div>
       </div>
 
-      {/* Ultra-thin Bottom Border */}
-      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent z-40" />
+      {/* === CORNER ACCENTS (UPGRADED) === */}
+      <div className="absolute top-28 left-8 w-6 h-6 border-t border-l border-black/20 z-30" />
+      <div className="absolute top-28 right-8 w-6 h-6 border-t border-r border-black/20 z-30" />
+
+      {/* BOTTOM FADE LINE */}
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-black/20 to-transparent z-30" />
+
     </section>
   );
 };

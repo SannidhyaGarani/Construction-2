@@ -1,95 +1,123 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
+    const id = requestAnimationFrame(() => setIsLoaded(true));
+    return () => cancelAnimationFrame(id);
   }, []);
 
   return (
-    <section className="relative h-screen w-full bg-[#050505] overflow-hidden flex items-center">
-      
-      {/* --- Background Layer: Subtle Grid & Depth --- */}
+    <section className="relative min-h-screen w-full bg-[#F9F8F6] overflow-hidden flex items-center pt-28 md:pt-32 lg:pt-0">
+
+      {/* 🔥 TOP GRADIENT FOR HEADER VISIBILITY */}
+      <div className="absolute top-0 left-0 w-full h-40 bg-gradient-to-b from-black/50 via-black/20 to-transparent z-20 pointer-events-none" />
+
+      {/* --- BACKGROUND --- */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.03]" />
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-[#050505] via-transparent to-[#050505] z-10" />
+        <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]" />
+        
+        {/* subtle glow */}
+        <div className="absolute -top-24 -left-24 w-96 h-96 border border-[#C5A880]/10 rounded-full animate-pulse" />
       </div>
 
-      {/* --- Main Image Pane (Asymmetrical) --- */}
+      {/* --- IMAGE PANEL --- */}
       <div 
-        className={`absolute right-0 top-0 h-full w-full lg:w-[55%] transition-all duration-[2s] ease-out z-0 ${
-          isLoaded ? 'opacity-40 scale-100 translate-x-0' : 'opacity-0 scale-110 translate-x-20'
+        className={`absolute right-6 top-28 bottom-12 w-full lg:w-[45%] transition-all duration-[2.2s] z-10 hidden lg:block ${
+          isLoaded ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-40'
         }`}
       >
-        <div 
-          className="h-full w-full bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop')" }}
-        />
-        {/* Image Overlay Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#050505] via-[#050505]/40 to-transparent" />
-      </div>
+        <div className="relative h-full w-full overflow-hidden shadow-[20px_20px_60px_rgba(0,0,0,0.05)] border border-white">
+          
+          <div 
+            className={`h-full w-full bg-cover bg-center transition-transform duration-[10s] ease-out ${
+              isLoaded ? 'scale-100' : 'scale-110'
+            }`}
+            style={{
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1600607687940-47a04b629571?q=80&w=2000&auto=format&fit=crop')",
+            }}
+          />
 
-      {/* --- Content Overlay --- */}
-      <div className="relative z-20 w-full max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20 flex flex-col justify-center h-full">
-        
-        {/* Technical Metadata (Vertical) */}
-        <div className={`absolute left-6 md:left-10 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-12 transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-          <span className="rotate-90 origin-center text-[9px] uppercase tracking-[1em] text-[#C5A880] font-bold whitespace-nowrap">
-            {/* ESTABLISHED MMIV */}
-          </span>
-          <div className="h-32 w-[1px] bg-neutral-800" />
-          <span className="rotate-90 origin-center text-[9px] uppercase tracking-[1em] text-neutral-600 whitespace-nowrap">
-            {/* HQ // GURUGRAM */}
-          </span>
+          {/* 🔥 DARK OVERLAY FOR CONTRAST */}
+          <div className="absolute inset-0 bg-black/30" />
+
+          <div className="absolute inset-0 bg-gradient-to-t from-[#F9F8F6]/60 to-transparent" />
         </div>
 
-        <div className="max-w-4xl">
-          {/* Accent Badge */}
-          <div className={`inline-flex items-center gap-3 mb-8 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-            <div className="w-2 h-2 rounded-full bg-[#C5A880] animate-pulse" />
-            <span className="text-[10px] uppercase tracking-[0.4em] text-neutral-400 font-bold">
-              Architectural Excellence
+        {/* FLOATING CARD */}
+        <div className="absolute bottom-12 -left-12 bg-white/90 backdrop-blur-md p-6 border border-neutral-100 shadow-xl hidden xl:block z-20">
+          <p className="text-[9px] uppercase tracking-[0.3em] text-[#C5A880] mb-1 font-bold">
+            Featured Project
+          </p>
+          <p className="text-sm font-serif italic text-neutral-800">
+            The Obsidian Villa, 2024
+          </p>
+        </div>
+      </div>
+
+      {/* --- CONTENT --- */}
+      <div className="relative z-20 w-full max-w-[1600px] mx-auto px-6 md:px-16">
+        <div className="max-w-3xl">
+
+          {/* LABEL */}
+          <div className={`flex items-center gap-4 mb-8 transition-all duration-1000 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}>
+            <div className="w-12 h-[1px] bg-[#C5A880]" />
+            <span className="text-[11px] uppercase tracking-[0.5em] text-neutral-500 font-medium">
+              Aesthetics of Permanence
             </span>
           </div>
 
-          {/* Massive Headline with staggered reveal */}
-          <h1 className="font-serif text-[12vw] md:text-[8vw] lg:text-[7vw] leading-[0.85] text-white tracking-tighter mb-10">
-            <span className="block overflow-hidden pb-2">
-              <span className={`block transition-all duration-[1.5s] ease-out ${isLoaded ? 'translate-y-0' : 'translate-y-full'}`}>
-                PRECISION.
+          {/* TITLE */}
+          <h1 className="font-serif text-[13vw] md:text-[7vw] lg:text-[6vw] leading-[0.9] text-neutral-900 tracking-tight mb-12">
+            <span className="block overflow-hidden">
+              <span className={`block transition-all duration-[1.8s] ${
+                isLoaded ? 'translate-y-0' : 'translate-y-full'
+              }`}>
+                Sculpting <span className="italic font-light">Space</span>
               </span>
             </span>
-            <span className="block overflow-hidden pb-2">
-              <span className={`block italic text-transparent bg-clip-text bg-gradient-to-r from-[#C5A880] to-neutral-600 transition-all duration-[1.5s] delay-300 ease-out ${isLoaded ? 'translate-y-0' : 'translate-y-full'}`}>
-                PURPOSE.
+            <span className="block overflow-hidden -mt-2">
+              <span className={`block transition-all duration-[1.8s] delay-300 ${
+                isLoaded ? 'translate-y-0' : 'translate-y-full'
+              }`}>
+                Defining <span className="text-[#C5A880]">Time.</span>
               </span>
             </span>
           </h1>
 
-          {/* Subtext with a "technical" feel */}
-          <div className={`grid md:grid-cols-2 gap-8 items-start transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-            <p className="text-neutral-400 text-sm md:text-lg font-light leading-relaxed border-l border-[#C5A880]/30 pl-6">
-              Create Space Architects orchestrates high-value assets where structural integrity meets refined aesthetic discipline. We don't just build; we curate landmarks.
-            </p>
-            
-            <div className="flex flex-col gap-6 pt-2">
-              <div className="flex items-center gap-8">
-                <Link 
-                  to="/contact" 
-                  className="group relative flex items-center gap-4 bg-[#C5A880] text-[#050505] px-8 py-4 text-[10px] uppercase tracking-[0.3em] font-bold hover:bg-white transition-all duration-500"
-                >
-                  Start Inquiry
-                  <ArrowRight size={16} className="group-hover:translate-x-2 transition-transform duration-500" />
-                </Link>
+          {/* BOTTOM GRID */}
+          <div className={`grid md:grid-cols-12 gap-10 transition-all duration-1000 delay-700 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          }`}>
+            <div className="md:col-span-7">
+              <p className="text-neutral-500 text-base md:text-lg font-light leading-relaxed max-w-md">
+                Architecture is a dialogue between Earth and Sky. We curate environments that resonate with silent luxury and technical mastery.
+              </p>
+            </div>
 
-                <Link 
-                  to="/gallery"
-                  className="text-white text-[10px] uppercase tracking-[0.3em] font-bold border-b border-white/20 pb-1 hover:border-[#C5A880] transition-all duration-500"
-                >
-                  Work Archive
+            <div className="md:col-span-5 flex flex-col justify-end gap-6">
+              <Link 
+                to="/contact" 
+                className="group w-full flex items-center justify-between border-b border-neutral-900 pb-4 hover:border-[#C5A880] transition-all duration-500"
+              >
+                <span className="text-[11px] uppercase tracking-[0.4em] font-bold text-neutral-900">
+                  Start Project
+                </span>
+                <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Link>
+
+              <div className="flex gap-8">
+                <Link to="/gallery" className="text-[9px] uppercase tracking-[0.3em] font-bold text-neutral-400 hover:text-[#C5A880]">
+                  View Folio
+                </Link>
+                <Link to="/about" className="text-[9px] uppercase tracking-[0.3em] font-bold text-neutral-400 hover:text-[#C5A880]">
+                  The Studio
                 </Link>
               </div>
             </div>
@@ -97,28 +125,19 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* --- Decorative Bottom Bar (The "Coordinates") --- */}
-      <div className={`absolute bottom-0 left-0 w-full p-8 md:p-12 flex justify-between items-end transition-all duration-1000 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <div className="flex gap-12 text-[9px] uppercase tracking-[0.3em] text-neutral-600">
-          <div>
-            <span className="block text-[#C5A880] mb-1">Status</span>
-            <span className="text-neutral-400">Available for Commission</span>
-          </div>
-          <div className="hidden md:block">
-            <span className="block text-[#C5A880] mb-1">Focus</span>
-            <span className="text-neutral-400">Luxury Residential // Corporate</span>
-          </div>
-        </div>
-
-        {/* Scroll Indicator */}
-        <div className="flex flex-col items-center gap-4">
-          <span className="text-[9px] uppercase tracking-[0.4em] text-neutral-500 rotate-90 mb-8 origin-bottom">Scroll</span>
-          <div className="w-[1px] h-12 bg-gradient-to-b from-[#C5A880] to-transparent" />
+      {/* SCROLL INDICATOR */}
+      <div className="absolute bottom-10 right-1/2 translate-x-1/2 lg:right-12 lg:translate-x-0 flex flex-col items-center gap-4">
+        <div className="relative w-[1px] h-16 bg-neutral-200 overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1/2 bg-[#C5A880] animate-[scroll_2s_infinite]" />
         </div>
       </div>
 
-      {/* Subtle Side-Frame */}
-      <div className="absolute inset-y-0 left-0 w-[1px] bg-white/5 z-30" />
+      <style jsx>{`
+        @keyframes scroll {
+          0% { transform: translateY(-100%); }
+          100% { transform: translateY(200%); }
+        }
+      `}</style>
     </section>
   );
 };

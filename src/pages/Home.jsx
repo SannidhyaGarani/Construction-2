@@ -12,9 +12,9 @@ const Home = () => {
     <main className="bg-[#F6F4EF] text-[#111827]">
       <HeroSection />
       <BrandIntro />
+      <WhyChooseUs />
       <StatsSection />
       <ServicesSection />
-      <WhyChooseUs />
       <ProjectsPreview />
       <CTASection />
     </main>
