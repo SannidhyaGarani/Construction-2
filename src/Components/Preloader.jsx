@@ -37,6 +37,7 @@ const Preloader = () => {
             clearInterval(interval);
             clearInterval(statusInterval);
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (!isVisible) return null;

@@ -1,10 +1,10 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 import { Edit2, Trash2, ArrowUpRight } from 'lucide-react';
 
 const Card = ({ image, title, subtitle, details = [], onEdit, onDelete, onClick, isAdmin = false, className = '' }) => {
   return (
-    <motion.div
+    <Motion.div
       whileHover={{ y: -10 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
       className={`group relative bg-white rounded-3xl overflow-hidden shadow-2xl shadow-neutral-200/50 border border-neutral-100 hover:border-neutral-200 transition-all duration-500 ${className}`}
@@ -71,7 +71,7 @@ const Card = ({ image, title, subtitle, details = [], onEdit, onDelete, onClick,
           </div>
         )}
       </div>
-    </motion.div>
+    </Motion.div>
   );
 };
 

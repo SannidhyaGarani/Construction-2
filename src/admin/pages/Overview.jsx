@@ -12,10 +12,11 @@ import {
   ArrowUpRight,
   Loader2
 } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion as Motion } from 'framer-motion';
 
-const StatCard = ({ title, value, icon: Icon, color, delay }) => (
-  <motion.div
+const StatCard = ({ title, value, icon: Icon, color, delay }) => { // eslint-disable-line no-unused-vars
+  return (
+  <Motion.div
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay }}
@@ -33,8 +34,9 @@ const StatCard = ({ title, value, icon: Icon, color, delay }) => (
     <div className="text-neutral-200 group-hover:text-[#C5A880] transition-colors">
       <ArrowUpRight size={24} />
     </div>
-  </motion.div>
-);
+  </Motion.div>
+  );
+};
 
 const Overview = () => {
   const [stats, setStats] = useState({
@@ -147,7 +149,7 @@ const Overview = () => {
           <div className="h-64 flex items-end gap-4">
             {[40, 70, 45, 90, 65, 80, 55].map((h, i) => (
               <div key={i} className="flex-1 bg-neutral-100 rounded-t-xl relative group overflow-hidden">
-                <motion.div 
+                <Motion.div 
                   initial={{ height: 0 }}
                   animate={{ height: `${h}%` }}
                   transition={{ duration: 1, delay: i * 0.1 }}

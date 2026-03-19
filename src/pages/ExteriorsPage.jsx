@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { collection, getDocs, query, orderBy, where } from 'firebase/firestore';
+import { collection, getDocs, query, orderBy } from 'firebase/firestore';
 import { db } from '../Firebase/Firebase';
 import { Link } from 'react-router-dom';
 import PageHero from '../Components/PageHero';
