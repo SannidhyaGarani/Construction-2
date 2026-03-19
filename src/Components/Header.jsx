@@ -61,7 +61,8 @@ const Header = () => {
           {/* --- DESKTOP NAV --- */}
           <nav className="hidden lg:flex items-center gap-10">
             <NavLink to="/" isScrolled={isScrolled}>Home</NavLink>
-            <NavLink to="/floorplans" isScrolled={isScrolled}>Floor Plans</NavLink>
+            <NavLink to="/projects" isScrolled={isScrolled}>Projects</NavLink>
+            {/* <NavLink to="/gallery" isScrolled={isScrolled}>Projects</NavLink> */}
 
             {/* DROPDOWN */}
             <div
@@ -93,7 +94,8 @@ const Header = () => {
                 <div className="flex flex-col py-3">
                   <DropdownLink to="/exteriors">Exteriors</DropdownLink>
                   <DropdownLink to="/interiors">Interiors</DropdownLink>
-                  <DropdownLink to="/projects">All Projects</DropdownLink>
+                  <DropdownLink to="/floorplans">Floor Plans</DropdownLink>
+                  {/* <DropdownLink to="/projects">All Projects</DropdownLink> */}
                 </div>
               </div>
             </div>

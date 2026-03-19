@@ -4,7 +4,7 @@ import { db } from '../Firebase/Firebase';
 import { Link } from 'react-router-dom';
 import PageHero from '../Components/PageHero';
 import Reveal from '../Components/Reveal';
-import Card from '../components/common/Card';
+import Card from '../Components/common/Card';
 import { Loader2, Home } from 'lucide-react';
 
 const ExteriorsPage = () => {
