@@ -35,7 +35,7 @@ const Services = () => {
   ];
 
   return (
-    <section className="bg-white py-16 lg:py-24 px-6 md:px-12 lg:px-20 border-t border-neutral-100">
+    <section className="bg-white py-16 lg:py-20 px-6 md:px-12 lg:px-20 border-t border-neutral-100">
       <div className="max-w-[1300px] mx-auto">
         
         {/* --- Section Header --- */}

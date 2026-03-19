@@ -32,7 +32,7 @@ const BrandIntro = () => {
             <Reveal delay={0.4}>
               <div className="max-w-2xl flex flex-col md:flex-row gap-8 md:gap-12">
                 <p className="text-lg md:text-xl text-neutral-600 font-light leading-relaxed flex-1">
-                  Established in 2001, <span className="text-black font-semibold">Create Space Architects</span> operates across Tier‑1 cities in India, delivering assets defined by technical precision.
+                  Established in 2025, <span className="text-black font-semibold">Create Space Architects</span> operates across Tier‑1 cities in India, delivering assets defined by technical precision.
                 </p>
                 <p className="text-sm text-neutral-500 font-light leading-relaxed flex-1 pt-1 md:border-l border-neutral-200 md:pl-8">
                   Our methodology balances feasibility and aesthetics—transparent reporting, accountable supervision, and coordination that relentlessly protects long-term value.
@@ -72,7 +72,7 @@ const BrandIntro = () => {
                 </div>
 
                 <div className="flex items-end gap-2">
-                  <span className="font-serif text-6xl text-white leading-none">30</span>
+                  <span className="font-serif text-6xl text-white leading-none">3</span>
                   <span className="font-serif text-3xl text-white mb-1">+</span>
                 </div>
 
