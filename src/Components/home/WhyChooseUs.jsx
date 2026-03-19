@@ -10,7 +10,7 @@ const points = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="py-24 md:py-32 bg-[#F9F8F6] overflow-hidden relative border-t border-black/[0.03]">
+    <section className="py-16 lg:py-24 bg-[#F9F8F6] overflow-hidden relative border-t border-black/[0.03]">
       
       {/* BACKGROUND ARCHITECTURAL GRID - SOFT LIGHT GRAY GUIDES */}
       <div className="absolute inset-0 opacity-[0.2] pointer-events-none" 

@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Send, Globe } from 'lucide-react';
 
 const ContactSection = () => {
   return (
-    <section className="bg-white border-t border-neutral-100">
+    <section className="py-16 lg:py-20 bg-white border-t border-neutral-100">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
 
         {/* --- Section Header --- */}

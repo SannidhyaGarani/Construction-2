@@ -41,7 +41,7 @@ const ProjectsPreview = () => {
 
   return (
     // Added overflow-x-hidden here to catch any button bleed
-    <section className="py-24 md:py-32 bg-white border-t border-neutral-100 overflow-x-hidden">
+    <section className="py-16 lg:py-20 bg-white border-t border-neutral-100 overflow-x-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
         
         {/* --- Section Header --- */}

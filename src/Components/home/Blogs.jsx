@@ -31,7 +31,7 @@ const RecentBlogs = () => {
 
   return (
     /* Added overflow-x-hidden to prevent button bleed */
-    <section className="py-24 bg-[#F9F8F6] border-t border-neutral-100 overflow-x-hidden">
+    <section className="py-16 lg:py-20 bg-[#F9F8F6] border-t border-neutral-100 overflow-x-hidden">
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-20">
         
         {/* --- Section Header --- */}

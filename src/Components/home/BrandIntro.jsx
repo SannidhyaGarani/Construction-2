@@ -3,7 +3,7 @@ import Reveal from '../../Components/Reveal';
 
 const BrandIntro = () => {
   return (
-    <section className="relative py-24 md:py-40 bg-[#FAFAFA] text-[#050505] overflow-hidden">
+    <section className="relative py-16 lg:py-24 bg-[#FAFAFA] text-[#050505] overflow-hidden">
 
       {/* Immersive Background Element - Softened for Light Mode */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#C5A880] rounded-full blur-[160px] opacity-[0.07] pointer-events-none" />
