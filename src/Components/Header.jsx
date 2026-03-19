@@ -161,7 +161,7 @@ const Header = () => {
           
           <div className="flex-1 flex flex-col justify-center gap-6">
             <span className="text-[10px] uppercase tracking-[0.5em] text-[#C5A880] font-bold mb-4">Navigation</span>
-            {['Home', 'Floor Plans', 'Exteriors', 'Interiors', 'Projects', 'Insights'].map((label, i) => (
+            {['Home', 'Floor Plans', 'Exteriors', 'Interiors', 'Projects', 'About'].map((label, i) => (
               <Link
                 key={label}
                 to={label === 'Home' ? '/' : `/${label.toLowerCase().replace(' ', '')}`}

@@ -42,7 +42,7 @@ const ConstructionHero = () => {
             <div className="w-12 h-[1px] bg-[#C5A880]" />
           </div>
 
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white leading-[0.9] tracking-tighter mb-8">
+          <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-[0.9] tracking-tighter mb-8">
             Sculpting <span className="italic font-light">Space</span> <br />
             Defining <span className="text-[#C5A880]">Time.</span>
           </h1>
