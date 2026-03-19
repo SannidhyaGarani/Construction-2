@@ -47,14 +47,14 @@ const Header = () => {
               src="/img/logos.png"
               alt="Studio Logo"
               className={`transition-all duration-700 ${
-                isScrolled ? 'h-12 grayscale-[50%]' : 'h-14 brightness-0 invert drop-shadow-md'
+                isScrolled ? 'h-13 grayscale-[50%]' : 'h-15 brightness-0 invert drop-shadow-md'
               }`}
             />
             {/* Technical Divider - Only visible when not scrolled */}
             <div className={`hidden md:block h-8 w-px transition-all duration-700 ${isScrolled ? 'bg-black/10' : 'bg-white/20'}`} />
-            <span className={`hidden md:block text-[8px] uppercase tracking-[0.4em] font-mono transition-colors duration-700 ${isScrolled ? 'text-neutral-400' : 'text-white/60'}`}>
+            {/* <span className={`hidden md:block text-[8px] uppercase tracking-[0.4em] font-mono transition-colors duration-700 ${isScrolled ? 'text-neutral-400' : 'text-white/60'}`}>
               Est. 2001
-            </span>
+            </span> */}
           </Link>
 
           {/* --- DESKTOP NAV --- */}
