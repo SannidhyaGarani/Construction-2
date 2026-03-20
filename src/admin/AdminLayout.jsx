@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
 import { 
   LayoutDashboard, 
   Map, 
@@ -11,9 +11,31 @@ import {
   X, 
   LogOut 
 } from 'lucide-react';
-import { Toaster } from 'react-hot-toast';
+import { Toaster, toast } from 'react-hot-toast';
+import { useAuth } from '../context/AuthContext';
 
 const Sidebar = ({ isOpen, toggle }) => {
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      toast.success('Logged out successfully', {
+        style: {
+          background: '#1A1D23',
+          color: '#fff',
+          borderRadius: '16px',
+          border: '1px solid #C5A880',
+        },
+      });
+      navigate('/admin/login');
+    } catch (error) {
+      toast.error('Failed to logout');
+      console.error(error);
+    }
+  };
+
   const navLinks = [
     { name: 'Overview', path: '/admin/overview', icon: LayoutDashboard },
     { name: 'Floor Plans', path: '/admin/floor-plans', icon: Map },
@@ -56,7 +78,10 @@ const Sidebar = ({ isOpen, toggle }) => {
 
         {/* Footer */}
         <div className="pt-8 border-t border-white/5">
-          <button className="group flex items-center gap-4 px-6 py-4 w-full rounded-2xl text-neutral-500 hover:bg-red-500/10 hover:text-red-500 transition-all duration-500">
+          <button 
+            onClick={handleLogout}
+            className="group flex items-center gap-4 px-6 py-4 w-full rounded-2xl text-neutral-500 hover:bg-red-500/10 hover:text-red-500 transition-all duration-500"
+          >
             <LogOut size={20} className="transition-transform group-hover:-translate-x-1" />
             <span className="text-xs uppercase tracking-[0.2em] font-bold">Logout</span>
           </button>

@@ -35,6 +35,12 @@ import Exteriors from "./admin/pages/Exteriors";
 import Interiors from "./admin/pages/Interiors";
 import Projects from "./admin/pages/Projects";
 import Blogs from "./admin/pages/Blogs";
+import AdminLogin from "./admin/pages/AdminLogin";
+import AdminSignup from "./admin/pages/AdminSignup";
+
+// Auth
+import { AuthProvider } from "./context/AuthContext";
+import ProtectedRoute from "./Components/ProtectedRoute";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -54,7 +60,7 @@ function App() {
   }
 
   return (
-    <>
+    <AuthProvider>
       {!isAdminPath && <Header />}
       <ScrollToTop />
 
@@ -78,8 +84,19 @@ function App() {
         <Route path="/blogs" element={<BlogsPage />} />
         <Route path="/blogs/:id" element={<BlogDetail />} />
 
+        {/* Admin Auth Routes */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        {/* <Route path="/admin/signup" element={<AdminSignup />} /> */}
+
         {/* Admin Routes */}
-        <Route path="/admin" element={<AdminLayout />}>
+        <Route 
+          path="/admin" 
+          element={
+            <ProtectedRoute>
+              <AdminLayout />
+            </ProtectedRoute>
+          }
+        >
           <Route index element={<Overview />} />
           <Route path="overview" element={<Overview />} />
           <Route path="floor-plans" element={<FloorPlans />} />
@@ -93,7 +110,7 @@ function App() {
       </Routes>
 
       {!isAdminPath && <Footer />}
-    </>
+    </AuthProvider>
   );
 }
 
